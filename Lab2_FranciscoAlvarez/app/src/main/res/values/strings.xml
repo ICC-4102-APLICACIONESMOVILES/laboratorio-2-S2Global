@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab2_FranciscoAlvarez</string>
+    <string name="dimport">Import</string>
+    <string name="gallery">Gallery</string>
+    <string name="slideshow">Slideshow</string>
+    <string name="tools">Tools</string>
+</resources>
