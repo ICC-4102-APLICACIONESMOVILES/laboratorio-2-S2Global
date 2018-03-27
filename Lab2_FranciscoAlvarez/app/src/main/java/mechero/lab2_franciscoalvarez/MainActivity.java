@@ -1,11 +1,12 @@
 package mechero.lab2_franciscoalvarez;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,10 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,7 +37,20 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         // set item as selected to persist highlight
                         menuItem.setChecked(true);
-                        // close drawer when item is tapped
+
+                        switch (menuItem.getItemId()) {
+                            case R.id.nav_camera:
+                                setContentView(R.layout.fragment_form);
+                                return true;
+
+                            case R.id.nav_gallery:
+                                setContentView(R.layout.activity_main);
+                                return true;
+
+                            case R.id.nav_slideshow:
+                                setContentView(R.layout.activity_main);
+                                return true;
+                        }
                         mDrawerLayout.closeDrawers();
 
                         // Add code here to update the UI based on the item selected
@@ -65,10 +81,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onDrawerStateChanged(int newState) {
                         // Respond when the drawer motion state changes
                     }
+
                 }
         );
 
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
