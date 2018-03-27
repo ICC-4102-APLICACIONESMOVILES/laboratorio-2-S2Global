@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         menuItem.setChecked(true);
 
                         switch (menuItem.getItemId()) {
+
                             case R.id.nav_camera:
                                 Form form = new Form();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, form).commit();
@@ -46,11 +47,15 @@ public class MainActivity extends AppCompatActivity {
                                 return true;
 
                             case R.id.nav_gallery:
-                                setContentView(R.layout.activity_main);
+                                frag2 form2 = new frag2();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, form2).commit();
+                                mDrawerLayout.closeDrawers();
                                 return true;
 
                             case R.id.nav_slideshow:
-                                setContentView(R.layout.activity_main);
+                                Form form3 = new Form();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, form3).commit();
+                                mDrawerLayout.closeDrawers();
                                 return true;
                         }
 
