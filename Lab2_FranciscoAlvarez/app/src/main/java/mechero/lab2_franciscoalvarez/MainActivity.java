@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
                         switch (menuItem.getItemId()) {
                             case R.id.nav_camera:
-                                setContentView(R.layout.fragment_form);
+                                Form form = new Form();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, form).commit();
+                                mDrawerLayout.closeDrawers();
                                 return true;
 
                             case R.id.nav_gallery:
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                                 setContentView(R.layout.activity_main);
                                 return true;
                         }
+
                         mDrawerLayout.closeDrawers();
 
                         // Add code here to update the UI based on the item selected
